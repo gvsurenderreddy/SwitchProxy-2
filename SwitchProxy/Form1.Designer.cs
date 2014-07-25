@@ -31,6 +31,7 @@
             this.dataGridViewProxy = new System.Windows.Forms.DataGridView();
             this.buttonAddRow = new System.Windows.Forms.Button();
             this.buttonDeleteRows = new System.Windows.Forms.Button();
+            this.buttonSetActive = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProxy)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,11 +69,22 @@
             this.buttonDeleteRows.UseVisualStyleBackColor = true;
             this.buttonDeleteRows.Click += new System.EventHandler(this.buttonDeleteRows_Click);
             // 
+            // buttonSetActive
+            // 
+            this.buttonSetActive.Location = new System.Drawing.Point(321, 176);
+            this.buttonSetActive.Name = "buttonSetActive";
+            this.buttonSetActive.Size = new System.Drawing.Size(75, 23);
+            this.buttonSetActive.TabIndex = 3;
+            this.buttonSetActive.Text = "Set active";
+            this.buttonSetActive.UseVisualStyleBackColor = true;
+            this.buttonSetActive.Click += new System.EventHandler(this.buttonSetActive_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 211);
+            this.Controls.Add(this.buttonSetActive);
             this.Controls.Add(this.buttonDeleteRows);
             this.Controls.Add(this.buttonAddRow);
             this.Controls.Add(this.dataGridViewProxy);
@@ -88,6 +100,7 @@
         private System.Windows.Forms.DataGridView dataGridViewProxy;
         private System.Windows.Forms.Button buttonAddRow;
         private System.Windows.Forms.Button buttonDeleteRows;
+        private System.Windows.Forms.Button buttonSetActive;
     }
 }
 

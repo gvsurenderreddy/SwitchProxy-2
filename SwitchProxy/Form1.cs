@@ -37,7 +37,8 @@ namespace SwitchProxy
             refreshDataGridView();
 
             // Set rightmost column to fill -> prevents space
-            dataGridViewProxy.Columns[numberOfColumns - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewProxy.Columns[COLUMN_IGNORE_LOCAL_SETTINGS].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewProxy.Columns[COLUMN_ACTIVE].ReadOnly = true;
         }
 
 
@@ -75,9 +76,23 @@ namespace SwitchProxy
             foreach (DataGridViewRow row in dataGridViewProxy.SelectedRows)
             {
                 proxyTable.Rows.RemoveAt(row.Index);
-                refreshDataGridView();
+            }
+            refreshDataGridView();
+
+        }
+
+        private void buttonSetActive_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewProxy.Rows)
+            {
+                proxyTable.Rows[row.Index][COLUMN_ACTIVE] = false;
             }
 
+            foreach (DataGridViewRow row in dataGridViewProxy.SelectedRows)
+            {
+                proxyTable.Rows[row.Index][COLUMN_ACTIVE] = true;
+            }
+            refreshDataGridView();
         }
 
     }
