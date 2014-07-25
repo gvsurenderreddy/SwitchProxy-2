@@ -13,11 +13,11 @@ namespace SwitchProxy
     public partial class Form1 : Form
     {
         private static int numberOfColumns = 5;
-        private static const String COLUMN_ACTIVE = "Active";
-        private static const String COLUMN_NAME = "Name";
-        private static const String COLUMN_ADDRESS = "Address";
-        private static const String COLUMN_PORT = "Port";
-        private static const String COLUMN_IGNORE_LOCAL_SETTINGS = "Ignore local settings";
+        private const String COLUMN_ACTIVE = "Active";
+        private const String COLUMN_NAME = "Name";
+        private const String COLUMN_ADDRESS = "Address";
+        private const String COLUMN_PORT = "Port";
+        private const String COLUMN_IGNORE_LOCAL_SETTINGS = "Ignore local settings";
         
         public Form1()
         {
