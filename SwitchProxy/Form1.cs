@@ -64,5 +64,21 @@ namespace SwitchProxy
             dataGridViewProxy.DataSource = proxyTable;
         }
 
+        private void buttonAddRow_Click(object sender, EventArgs e)
+        {
+            addEmptyRowToDatatable();
+            refreshDataGridView();
+        }
+
+        private void buttonDeleteRows_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewProxy.SelectedRows)
+            {
+                proxyTable.Rows.RemoveAt(row.Index);
+                refreshDataGridView();
+            }
+
+        }
+
     }
 }
