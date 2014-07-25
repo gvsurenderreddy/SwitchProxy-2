@@ -34,17 +34,22 @@
             // 
             // dataGridViewProxy
             // 
+            this.dataGridViewProxy.AllowUserToAddRows = false;
+            this.dataGridViewProxy.AllowUserToDeleteRows = false;
+            this.dataGridViewProxy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewProxy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProxy.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewProxy.Name = "dataGridViewProxy";
-            this.dataGridViewProxy.Size = new System.Drawing.Size(371, 151);
+            this.dataGridViewProxy.Size = new System.Drawing.Size(546, 190);
             this.dataGridViewProxy.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 172);
+            this.ClientSize = new System.Drawing.Size(570, 211);
             this.Controls.Add(this.dataGridViewProxy);
             this.Name = "Form1";
             this.Text = "SwitchProxy";
