@@ -12,21 +12,32 @@ namespace SwitchProxy
 {
     public partial class Form1 : Form
     {
-        private static int numberOfColumns = 5;
         private const String COLUMN_ACTIVE = "Active";
         private const String COLUMN_NAME = "Name";
         private const String COLUMN_ADDRESS = "Address";
         private const String COLUMN_PORT = "Port";
         private const String COLUMN_IGNORE_LOCAL_SETTINGS = "Ignore local settings";
-        
+
+        private static int numberOfColumns = 5;
+        private static DataTable proxyTable;
+
+
+
         public Form1()
         {
             InitializeComponent();
-            DataTable proxyTable = createProxyTable();
-            dataGridViewProxy.DataSource = proxyTable;
+            initializeDataGridView();
+            addEmptyRowToDatatable();
+            refreshDataGridView();
+        }
+
+        private void initializeDataGridView()
+        {
+            proxyTable = createProxyTable();
+            refreshDataGridView();
 
             // Set rightmost column to fill -> prevents space
-            dataGridViewProxy.Columns[numberOfColumns-1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewProxy.Columns[numberOfColumns - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 
@@ -40,6 +51,17 @@ namespace SwitchProxy
             proxyTable.Columns.Add(COLUMN_IGNORE_LOCAL_SETTINGS, typeof(bool));
 
             return proxyTable;
+        }
+
+        private void addEmptyRowToDatatable()
+        {
+            DataRow row = proxyTable.NewRow();
+            proxyTable.Rows.Add(row);
+        }
+
+        private void refreshDataGridView()
+        {
+            dataGridViewProxy.DataSource = proxyTable;
         }
 
     }
