@@ -73,11 +73,13 @@ namespace SwitchProxy
         }
 
         /// <summary>
-        /// Refreshes the GridView by assigning the current DataTable to it
+        /// Refreshes the GridView by assigning the current DataTable to it. Sets the StatusStrip
+        /// to success afterwards
         /// </summary>
         private void refreshDataGridView()
         {
             dataGridViewProxy.DataSource = proxyTable;
+            setStatusStripSuccessful();
         }
 
         /// <summary>
@@ -98,12 +100,12 @@ namespace SwitchProxy
         /// <param name="e"></param>
         private void buttonDeleteRows_Click(object sender, EventArgs e)
         {
+            int numberOfSelectedRows = dataGridViewProxy.SelectedRows.Count;
             foreach (DataGridViewRow row in dataGridViewProxy.SelectedRows)
             {
                 proxyTable.Rows.RemoveAt(row.Index);
             }
             refreshDataGridView();
-
         }
 
         /// <summary>
@@ -114,6 +116,20 @@ namespace SwitchProxy
         /// <param name="e"></param>
         private void buttonSetActive_Click(object sender, EventArgs e)
         {
+            // No row selected
+            if (dataGridViewProxy.SelectedRows.Count == 0)
+            {
+                setStatusStrip(Color.Yellow, "Please select 1 row");
+                return;
+            }
+
+            // More than one row selected
+            if (dataGridViewProxy.SelectedRows.Count > 1)
+            {
+                setStatusStrip(Color.Yellow, "Please select 1 row");
+                return;
+            }
+
             foreach (DataGridViewRow row in dataGridViewProxy.Rows)
             {
                 proxyTable.Rows[row.Index][COLUMN_ACTIVE] = false;
@@ -124,6 +140,25 @@ namespace SwitchProxy
                 proxyTable.Rows[row.Index][COLUMN_ACTIVE] = true;
             }
             refreshDataGridView();
+        }
+
+        /// <summary>
+        /// Sets the content of the StatusStrip
+        /// </summary>
+        /// <param name="color">Color of color field</param>
+        /// <param name="message">Message to display</param>
+        private void setStatusStrip(Color color, String message)
+        {
+            toolStripStatusLabelColor.BackColor = color;
+            toolStripStatusLabelMessage.Text = message;
+        }
+
+        /// <summary>
+        /// Sets the StatusStrip to LightGreen and empty caption
+        /// </summary>
+        private void setStatusStripSuccessful()
+        {
+            setStatusStrip(Color.Green, "");
         }
 
     }
