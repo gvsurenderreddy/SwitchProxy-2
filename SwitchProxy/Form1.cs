@@ -21,6 +21,7 @@ namespace SwitchProxy
         private const String COLUMN_IGNORE_LOCAL_SETTINGS = "Ignore local settings";
 
         private static DataTable proxyTable;
+        private const String tableName = "Proxy table";
 
         /// <summary>
         /// Program flow
@@ -54,6 +55,7 @@ namespace SwitchProxy
         private DataTable createProxyTable()
         {
             DataTable proxyTable = new DataTable();
+            proxyTable.TableName = tableName;
             proxyTable.Columns.Add(COLUMN_ACTIVE, typeof(bool));
             proxyTable.Columns.Add(COLUMN_NAME, typeof(string));
             proxyTable.Columns.Add(COLUMN_PROXY_ENABLED, typeof(bool));
@@ -217,6 +219,17 @@ namespace SwitchProxy
         private void setStatusStripSuccessful()
         {
             setStatusStrip(Color.Green, "");
+        }
+
+        private void menuItem1_Click(object sender, EventArgs e)
+        {
+            FileAccess.saveConfig(proxyTable);
+        }
+
+        private void menuItem2_Click(object sender, EventArgs e)
+        {
+            proxyTable = FileAccess.loadConfig();
+            refreshDataGridView();
         }
 
     }
