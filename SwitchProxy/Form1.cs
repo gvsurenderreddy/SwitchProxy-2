@@ -221,12 +221,12 @@ namespace SwitchProxy
             setStatusStrip(Color.Green, "");
         }
 
-        private void menuItem1_Click(object sender, EventArgs e)
+        private void menuItemSaveConfig_Click(object sender, EventArgs e)
         {
             FileAccess.saveConfig(proxyTable);
         }
 
-        private void menuItem2_Click(object sender, EventArgs e)
+        private void menuItemLoadConfig_Click(object sender, EventArgs e)
         {
             proxyTable = FileAccess.loadConfig();
             refreshDataGridView();
