@@ -20,7 +20,6 @@ namespace SwitchProxy
         private const String COLUMN_PORT = "Port";
         private const String COLUMN_IGNORE_LOCAL_SETTINGS = "Ignore local settings";
 
-        private static int numberOfColumns = 6;
         private static DataTable proxyTable;
 
         /// <summary>
@@ -161,7 +160,7 @@ namespace SwitchProxy
         /// <param name="dataRow">DataRow representing the selected DataGridViewRow</param>
         private void updateProxySettings(DataRow dataRow)
         {
-            bool proxyEnabled = (bool) dataRow[COLUMN_PROXY_ENABLED];
+            bool proxyEnabled = (bool)dataRow[COLUMN_PROXY_ENABLED];
             ProxyAccess.setProxy(proxyEnabled);
         }
 
