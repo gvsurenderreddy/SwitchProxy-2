@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridViewProxy = new System.Windows.Forms.DataGridView();
             this.buttonAddRow = new System.Windows.Forms.Button();
             this.buttonDeleteRows = new System.Windows.Forms.Button();
@@ -35,6 +36,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelColor = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProxy)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +110,16 @@
             this.toolStripStatusLabelMessage.Name = "toolStripStatusLabelMessage";
             this.toolStripStatusLabelMessage.Size = new System.Drawing.Size(0, 17);
             // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem1});
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 0;
+            this.menuItem1.Text = "Save Config";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,6 +130,7 @@
             this.Controls.Add(this.buttonDeleteRows);
             this.Controls.Add(this.buttonAddRow);
             this.Controls.Add(this.dataGridViewProxy);
+            this.Menu = this.mainMenu1;
             this.Name = "Form1";
             this.Text = "SwitchProxy";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProxy)).EndInit();
@@ -136,6 +150,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelColor;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelMessage;
+        private System.Windows.Forms.MainMenu mainMenu1;
+        private System.Windows.Forms.MenuItem menuItem1;
     }
 }
 
