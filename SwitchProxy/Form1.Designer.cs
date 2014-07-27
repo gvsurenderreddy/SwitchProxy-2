@@ -49,13 +49,13 @@
             this.dataGridViewProxy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProxy.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewProxy.Name = "dataGridViewProxy";
-            this.dataGridViewProxy.Size = new System.Drawing.Size(546, 220);
+            this.dataGridViewProxy.Size = new System.Drawing.Size(655, 220);
             this.dataGridViewProxy.TabIndex = 0;
             // 
             // buttonAddRow
             // 
             this.buttonAddRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddRow.Location = new System.Drawing.Point(483, 238);
+            this.buttonAddRow.Location = new System.Drawing.Point(592, 238);
             this.buttonAddRow.Name = "buttonAddRow";
             this.buttonAddRow.Size = new System.Drawing.Size(75, 23);
             this.buttonAddRow.TabIndex = 1;
@@ -66,7 +66,7 @@
             // buttonDeleteRows
             // 
             this.buttonDeleteRows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDeleteRows.Location = new System.Drawing.Point(402, 238);
+            this.buttonDeleteRows.Location = new System.Drawing.Point(511, 238);
             this.buttonDeleteRows.Name = "buttonDeleteRows";
             this.buttonDeleteRows.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteRows.TabIndex = 2;
@@ -77,7 +77,7 @@
             // buttonSetActive
             // 
             this.buttonSetActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetActive.Location = new System.Drawing.Point(321, 238);
+            this.buttonSetActive.Location = new System.Drawing.Point(430, 238);
             this.buttonSetActive.Name = "buttonSetActive";
             this.buttonSetActive.Size = new System.Drawing.Size(75, 23);
             this.buttonSetActive.TabIndex = 3;
@@ -92,7 +92,7 @@
             this.toolStripStatusLabelMessage});
             this.statusStrip1.Location = new System.Drawing.Point(0, 272);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(570, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(679, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 294);
+            this.ClientSize = new System.Drawing.Size(679, 294);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.buttonSetActive);
             this.Controls.Add(this.buttonDeleteRows);

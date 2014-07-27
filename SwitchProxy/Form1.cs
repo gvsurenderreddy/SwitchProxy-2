@@ -15,11 +15,12 @@ namespace SwitchProxy
         // COLUMN NAMES        
         private const String COLUMN_ACTIVE = "Active";
         private const String COLUMN_NAME = "Name";
+        private const String COLUMN_PROXY_ENABLED = "Proxy enabled";
         private const String COLUMN_ADDRESS = "Address";
         private const String COLUMN_PORT = "Port";
         private const String COLUMN_IGNORE_LOCAL_SETTINGS = "Ignore local settings";
 
-        private static int numberOfColumns = 5;
+        private static int numberOfColumns = 6;
         private static DataTable proxyTable;
 
         /// <summary>
@@ -56,6 +57,7 @@ namespace SwitchProxy
             DataTable proxyTable = new DataTable();
             proxyTable.Columns.Add(COLUMN_ACTIVE, typeof(bool));
             proxyTable.Columns.Add(COLUMN_NAME, typeof(string));
+            proxyTable.Columns.Add(COLUMN_PROXY_ENABLED, typeof(bool));
             proxyTable.Columns.Add(COLUMN_ADDRESS, typeof(string));
             proxyTable.Columns.Add(COLUMN_PORT, typeof(string));
             proxyTable.Columns.Add(COLUMN_IGNORE_LOCAL_SETTINGS, typeof(bool));
@@ -69,6 +71,15 @@ namespace SwitchProxy
         private void addEmptyRowToDatatable()
         {
             DataRow row = proxyTable.NewRow();
+
+            // Initialize values
+            row[COLUMN_ACTIVE] = false;
+            row[COLUMN_NAME] = "";
+            row[COLUMN_PROXY_ENABLED] = false;
+            row[COLUMN_ADDRESS] = "";
+            row[COLUMN_PORT] = "";
+            row[COLUMN_IGNORE_LOCAL_SETTINGS] = false;
+
             proxyTable.Rows.Add(row);
         }
 
@@ -138,8 +149,20 @@ namespace SwitchProxy
             foreach (DataGridViewRow row in dataGridViewProxy.SelectedRows)
             {
                 proxyTable.Rows[row.Index][COLUMN_ACTIVE] = true;
+                updateProxySettings(proxyTable.Rows[row.Index]);
             }
+
             refreshDataGridView();
+        }
+
+        /// <summary>
+        /// Updates the system proxy settings according to an entry in the DataTable by calling ProxyAccess
+        /// </summary>
+        /// <param name="dataRow">DataRow representing the selected DataGridViewRow</param>
+        private void updateProxySettings(DataRow dataRow)
+        {
+            bool proxyEnabled = (bool) dataRow[COLUMN_PROXY_ENABLED];
+            ProxyAccess.setProxy(proxyEnabled);
         }
 
         /// <summary>
