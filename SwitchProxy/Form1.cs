@@ -162,6 +162,42 @@ namespace SwitchProxy
         {
             bool proxyEnabled = (bool)dataRow[COLUMN_PROXY_ENABLED];
             ProxyAccess.setProxy(proxyEnabled);
+
+            String ip;
+            String port;
+
+            if (dataRow[COLUMN_ADDRESS] == DBNull.Value)
+            {
+                ip = "";
+            }
+            else
+            {
+                ip = (String)dataRow[COLUMN_ADDRESS];
+            }
+
+            if (dataRow[COLUMN_PORT] == DBNull.Value)
+            {
+                port = "";
+            }
+            else
+            {
+                port = (String)dataRow[COLUMN_PORT];
+            }
+
+            String ipAndPort;
+
+            if (ip == "" || port == "")
+            {
+                ipAndPort = "";
+            }
+            else
+            {
+                ipAndPort = ip + ":" + port;
+            }
+            ProxyAccess.setIpAndPort(ipAndPort);
+
+            bool ignoreLocalSettings = (bool)dataRow[COLUMN_IGNORE_LOCAL_SETTINGS];
+            ProxyAccess.setIgnoreLocalSettings(ignoreLocalSettings);
         }
 
         /// <summary>
