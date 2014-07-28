@@ -29,18 +29,27 @@ namespace SwitchProxy
         public Form1()
         {
             InitializeComponent();
+
+            if (FileAccess.configExists())
+            {
+                proxyTable = FileAccess.loadConfig();
+            }
+
+            else
+            {
+                proxyTable = createProxyTable();
+            }
+
             initializeDataGridView();
             addEmptyRowToDatatable();
             refreshDataGridView();
         }
 
         /// <summary>
-        /// Initializes the GridView by creating an empty DataTable, setting properties of certain columns
-        /// and setting the DataTable to the GridView
+        /// Initializes the GridView by setting properties of certain columns and setting the DataTable to the GridView
         /// </summary>
         private void initializeDataGridView()
         {
-            proxyTable = createProxyTable();
             refreshDataGridView();
 
             // Set rightmost column to fill -> prevents space
