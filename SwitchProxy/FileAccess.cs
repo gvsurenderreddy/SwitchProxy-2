@@ -13,6 +13,10 @@ namespace SwitchProxy
         private const String fileName = "config.xml";
         private const String fileScheme = "config_scheme.xsd";
 
+        /// <summary>
+        /// Saves a DataTable as XML file in a specified path
+        /// </summary>
+        /// <param name="proxyTable">DataTable to save</param>
         public static void saveConfig(DataTable proxyTable)
         {
             if (File.Exists(fileName))
@@ -24,11 +28,10 @@ namespace SwitchProxy
             proxyTable.WriteXmlSchema(fileScheme);
         }
 
-        public static void createFile(String filename)
-        {
-
-        }
-
+        /// <summary>
+        /// Loads a DataTable from a previously saved XML file
+        /// </summary>
+        /// <returns>Saved DataTable</returns>
         public static DataTable loadConfig()
         {
             DataTable proxyTable = new DataTable();
@@ -38,6 +41,15 @@ namespace SwitchProxy
                 proxyTable.ReadXml(fileName);
             }
             return proxyTable;
+        }
+
+        /// <summary>
+        /// Checks, if the DataTable file exists
+        /// </summary>
+        /// <returns>True if exists, false if not exists</returns>
+        public static bool configExists()
+        {
+            return (File.Exists(fileName));
         }
     }
 }
