@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Icon = SwitchProxy.Properties.Resources.app_icon;
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridViewProxy = new System.Windows.Forms.DataGridView();
             this.buttonAddRow = new System.Windows.Forms.Button();
             this.buttonDeleteRows = new System.Windows.Forms.Button();
@@ -139,6 +141,7 @@
             this.Controls.Add(this.buttonDeleteRows);
             this.Controls.Add(this.buttonAddRow);
             this.Controls.Add(this.dataGridViewProxy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
             this.Text = "SwitchProxy";
