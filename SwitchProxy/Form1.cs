@@ -38,10 +38,10 @@ namespace SwitchProxy
             else
             {
                 proxyTable = createProxyTable();
+                addEmptyRowToDatatable();
             }
 
             initializeDataGridView();
-            addEmptyRowToDatatable();
             refreshDataGridView();
         }
 
