@@ -230,15 +230,28 @@ namespace SwitchProxy
             setStatusStrip(Color.Green, "");
         }
 
+        /// <summary>
+        /// Saves the current configuration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuItemSaveConfig_Click(object sender, EventArgs e)
         {
             FileAccess.saveConfig(proxyTable);
         }
 
+        /// <summary>
+        /// Loads the previously saved configuration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuItemLoadConfig_Click(object sender, EventArgs e)
         {
-            proxyTable = FileAccess.loadConfig();
-            refreshDataGridView();
+            if (FileAccess.configExists())
+            {
+                proxyTable = FileAccess.loadConfig();
+                refreshDataGridView();
+            }
         }
 
     }
